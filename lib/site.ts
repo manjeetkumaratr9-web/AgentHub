@@ -1,8 +1,7 @@
 // Central site config — update the WhatsApp number in ONE place here.
 
-// TODO(Manjeet): replace with the real WhatsApp Business number.
-// Format: country code + number, digits only, no "+" or spaces. India = 91.
-export const WHATSAPP_NUMBER = "919999999999";
+// WhatsApp number: country code + number, digits only (India = 91).
+export const WHATSAPP_NUMBER = "918433046449";
 
 export const WHATSAPP_DEFAULT_MSG =
   "Hi! Mujhe apne business ke liye AI agent chahiye.";
