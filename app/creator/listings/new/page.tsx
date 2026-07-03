@@ -42,7 +42,7 @@ export default function NewListingPage() {
 
     const priceNum = parseFloat(form.priceAmount);
     if (isNaN(priceNum) || priceNum < 1) {
-      setError("Price must be at least ₹1 / $1");
+      setError("Price must be at least ₹1");
       setLoading(false);
       return;
     }
@@ -212,17 +212,17 @@ export default function NewListingPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Price (USD) *
+                Price (₹ INR) *
               </label>
               <input
                 type="number"
                 required
                 min="1"
-                step="0.01"
+                step="1"
                 value={form.priceAmount}
                 onChange={(e) => set("priceAmount", e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="29.00"
+                placeholder="999"
               />
             </div>
           </div>

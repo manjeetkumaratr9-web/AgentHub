@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { formatINR } from "@/lib/site";
 
 type Analytics = {
   totalListings: number;
@@ -67,7 +68,7 @@ export default function AnalyticsPage() {
           {[
             { label: "Total Listings", value: data.totalListings, sub: `${data.publishedListings} published`, icon: "📋" },
             { label: "Active Subscribers", value: data.totalSubscribers, sub: "paying clients", icon: "👥" },
-            { label: "Est. Revenue", value: `$${(data.estimatedRevenueCents / 100).toFixed(2)}`, sub: "from active plans", icon: "💰" },
+            { label: "Est. Revenue", value: formatINR(data.estimatedRevenueCents), sub: "from active plans", icon: "💰" },
             { label: "Calls (30 days)", value: data.totalCallsLast30Days, sub: `avg ${data.avgLatencyMs}ms latency`, icon: "⚡" },
           ].map((stat) => (
             <div key={stat.label} className="bg-white rounded-2xl border shadow-sm p-5">
@@ -150,7 +151,7 @@ export default function AnalyticsPage() {
                       }`}>{l.status}</span>
                     </td>
                     <td className="py-3 text-gray-600">
-                      ${(l.priceCents / 100).toFixed(2)}{l.pricingType === "SUBSCRIPTION" ? "/mo" : ""}
+                      {formatINR(l.priceCents)}{l.pricingType === "SUBSCRIPTION" ? "/mo" : ""}
                     </td>
                     <td className="py-3 text-gray-600">{l.subscribers}</td>
                     <td className="py-3 text-gray-600">{l.totalCalls}</td>

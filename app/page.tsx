@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import Reveal from "./components/Reveal";
 import NetworkBackground from "./components/NetworkBackground";
 import SiteNav from "./components/SiteNav";
+import { whatsappLink, formatINR } from "@/lib/site";
 
 const CATEGORY_ICONS: Record<string, string> = {
   CUSTOMER_SUPPORT: "🎧",
@@ -76,33 +77,37 @@ export default async function HomePage() {
                 <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-cyan-400" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
               </span>
-              The AI Agent Marketplace
+              🇮🇳 India ka AI Agent Marketplace
             </div>
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-[1.1]">
-              Automate Your Work<br />
-              With{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
-                AI Agents
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold text-white mb-6 leading-[1.15]">
+              AI Agents Jo Aapka Business{" "}
+              <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-green-400 bg-clip-text text-transparent animate-gradient-x">
+                24/7 Chalayein
               </span>
             </h1>
-            <p className="text-slate-300 text-xl mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Find and buy AI agents built by experts. From customer support to sales
-              automation — plug in an agent and save hours every day.
+            <p className="text-slate-300 text-lg sm:text-xl mb-9 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              WhatsApp pe leads, bookings aur customer support — sab automatic.
+              Aap agent chuno, <span className="text-white font-semibold">hum setup kar denge.</span>{" "}
+              Koi technical knowledge nahi chahiye.
             </p>
             <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
               <Link href="/listings"
-                className="group bg-gradient-to-r from-cyan-500 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-cyan-500/40 transition text-lg shadow-lg shadow-cyan-500/20">
-                Browse Agents <span className="inline-block group-hover:translate-x-1 transition">→</span>
+                className="group bg-gradient-to-r from-cyan-500 to-indigo-600 text-white px-7 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-cyan-500/40 transition text-lg shadow-lg shadow-cyan-500/20">
+                🛒 Browse Agents <span className="inline-block group-hover:translate-x-1 transition">→</span>
               </Link>
-              <Link href="/signup"
-                className="bg-white/5 border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 hover:border-cyan-300/50 transition text-lg backdrop-blur">
-                Sell Your Agent
-              </Link>
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
+                className="group bg-[#25D366] text-white px-7 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-green-500/40 transition text-lg shadow-lg shadow-green-500/20">
+                💬 WhatsApp Pe Baat Karo
+              </a>
             </div>
-            <div className="flex items-center gap-4 justify-center lg:justify-start mt-6 text-slate-400 text-sm">
-              <span>✅ No credit card required</span>
-              <span className="hidden sm:inline">·</span>
-              <span className="hidden sm:inline">Free to browse</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 justify-center lg:justify-start mt-6 text-slate-400 text-sm">
+              <span>✅ Verified Agents</span>
+              <span className="text-slate-600">·</span>
+              <span>💰 7-Day Money Back</span>
+              <span className="text-slate-600">·</span>
+              <span>🇮🇳 UPI Payments</span>
+              <span className="text-slate-600">·</span>
+              <span>🤝 Free Setup Support</span>
             </div>
           </div>
 
@@ -115,49 +120,56 @@ export default async function HomePage() {
               {/* depth card behind */}
               <div className="absolute inset-0 translate-x-6 translate-y-6 rounded-3xl bg-gradient-to-br from-cyan-500/30 to-purple-500/30 blur-md" />
 
-              {/* main terminal card */}
-              <div className="relative rounded-3xl bg-gray-900 shadow-2xl shadow-indigo-300/50 overflow-hidden border border-gray-800">
-                <div className="flex items-center gap-2 px-5 py-3 bg-gray-800/80 border-b border-gray-700">
-                  <span className="w-3 h-3 rounded-full bg-red-400" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                  <span className="ml-3 text-xs text-gray-400 font-mono">agent-gateway</span>
+              {/* WhatsApp chat mockup */}
+              <div className="relative w-[300px] rounded-3xl bg-white shadow-2xl shadow-cyan-500/20 overflow-hidden border border-white/20">
+                {/* WhatsApp header */}
+                <div className="flex items-center gap-3 px-4 py-3 bg-[#075E54] text-white">
+                  <div className="w-9 h-9 rounded-full bg-white/20 grid place-items-center text-lg">🤖</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-semibold leading-none">Sales Agent</div>
+                    <div className="text-[10px] text-green-200 mt-1">online</div>
+                  </div>
+                  <span className="text-sm opacity-80">📹  📞</span>
                 </div>
-                <div className="p-6 font-mono text-sm leading-relaxed">
-                  <div className="text-gray-500"># call any agent securely</div>
-                  <div className="mt-2">
-                    <span className="text-purple-400">curl</span>{" "}
-                    <span className="text-gray-300">-X POST</span>
+                {/* chat body */}
+                <div className="p-3 space-y-2 bg-[#e5ddd5] min-h-[264px]">
+                  <div className="max-w-[82%] bg-white rounded-lg rounded-tl-sm px-3 py-2 shadow-sm text-[13px] text-gray-800">
+                    Sir batch timing kya hai?
+                    <span className="block text-[9px] text-gray-400 text-right mt-0.5">10:32 AM</span>
                   </div>
-                  <div className="text-blue-400 break-all">  api/invoke/agent</div>
-                  <div className="text-gray-300">  -H <span className="text-emerald-400">"Authorization: Bearer ••••"</span></div>
-                  <div className="text-gray-300">  -d <span className="text-amber-300">{'{"message":"Book a demo"}'}</span></div>
-                  <div className="mt-4 flex items-center gap-2">
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 font-semibold">200 OK</span>
-                    <span className="text-xs text-gray-500">· 45ms</span>
+                  <div className="ml-auto max-w-[86%] bg-[#dcf8c6] rounded-lg rounded-tr-sm px-3 py-2 shadow-sm text-[13px] text-gray-800">
+                    Namaste! 🙏 Morning batch 7–9 AM, Evening 5–7 PM. Demo class book karein? 😊
+                    <span className="block text-[9px] text-gray-500 text-right mt-0.5">10:32 AM ✓✓</span>
                   </div>
-                  <div className="mt-2 text-emerald-300">{'{ "reply": "Demo booked ✅" }'}</div>
+                  <div className="max-w-[82%] bg-white rounded-lg rounded-tl-sm px-3 py-2 shadow-sm text-[13px] text-gray-800">
+                    Haan kal ka slot
+                    <span className="block text-[9px] text-gray-400 text-right mt-0.5">10:33 AM</span>
+                  </div>
+                  <div className="ml-auto max-w-[86%] bg-[#dcf8c6] rounded-lg rounded-tr-sm px-3 py-2 shadow-sm text-[13px] text-gray-800">
+                    Done! Kal 5 PM confirm ✅
+                    <span className="block text-[9px] text-gray-500 text-right mt-0.5">10:33 AM ✓✓</span>
+                  </div>
                 </div>
               </div>
 
               {/* floating pills */}
               <div className="absolute -top-5 -left-8 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 animate-float-slow">
-                <span className="text-xl">🔒</span>
+                <span className="text-xl">🤝</span>
                 <div>
-                  <div className="text-xs font-bold text-gray-800">Encrypted</div>
-                  <div className="text-[10px] text-gray-400">endpoint hidden</div>
+                  <div className="text-xs font-bold text-gray-800">Free Setup</div>
+                  <div className="text-[10px] text-gray-400">hum kar denge</div>
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 animate-float-x animation-delay-1000">
                 <span className="text-xl">⚡</span>
                 <div>
-                  <div className="text-xs font-bold text-gray-800">Instant access</div>
-                  <div className="text-[10px] text-gray-400">API key in seconds</div>
+                  <div className="text-xs font-bold text-gray-800">24/7 Active</div>
+                  <div className="text-[10px] text-gray-400">kabhi na soye</div>
                 </div>
               </div>
-              <div className="absolute top-1/2 -right-10 bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-2xl shadow-xl px-3 py-2 animate-float animation-delay-2000">
-                <div className="text-lg font-bold leading-none">99.9%</div>
-                <div className="text-[10px] text-blue-100">uptime</div>
+              <div className="absolute top-1/3 -right-10 bg-gradient-to-br from-emerald-500 to-green-600 text-white rounded-2xl shadow-xl px-3 py-2 animate-float animation-delay-2000">
+                <div className="text-lg font-bold leading-none">1000+</div>
+                <div className="text-[10px] text-green-100">replies/day</div>
               </div>
             </div>
           </div>
@@ -180,23 +192,30 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section className="bg-white py-14 px-6">
-        <div className="max-w-4xl mx-auto grid grid-cols-3 gap-6 text-center">
-          {[
-            { value: "500+", label: "AI Agents Listed", icon: "🤖" },
-            { value: "2,000+", label: "Happy Clients", icon: "😊" },
-            { value: "8", label: "Categories", icon: "🗂️" },
-          ].map((s, i) => (
-            <Reveal key={s.label} delay={i * 120}>
-              <div className="rounded-2xl border border-gray-100 bg-gradient-to-b from-white to-blue-50/40 py-6 shadow-sm">
-                <div className="text-2xl mb-1">{s.icon}</div>
-                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{s.value}</div>
-                <div className="text-sm text-gray-500 mt-1">{s.label}</div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+      {/* ── FOUNDING CREATOR LAUNCH BANNER (honest, no fake stats) ── */}
+      <section className="bg-white py-12 px-6">
+        <Reveal className="max-w-4xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-200 px-6 py-7 text-center shadow-sm">
+            <div className="inline-flex items-center gap-2 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+              🚀 NEWLY LAUNCHED
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+              Founding Creator Offer — pehle <span className="text-amber-600">20 creators</span> ke liye 3 mahine <span className="text-amber-600">0% commission</span>
+            </h2>
+            <p className="text-gray-500 text-sm mt-2">
+              Abhi shuruaat hai — jaldi list karo aur founding partner bano. 🇮🇳
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3 justify-center">
+              <Link href="/signup" className="bg-amber-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-amber-600 transition">
+                List Your Agent Free →
+              </Link>
+              <a href={whatsappLink("Hi! Main AgentHub pe apna AI agent list karna chahta hoon (Founding Creator offer).")} target="_blank" rel="noopener noreferrer"
+                className="bg-white border border-amber-300 text-amber-700 text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-amber-50 transition">
+                💬 Baat Karo
+              </a>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* ── HOW IT WORKS ── */}
@@ -285,7 +304,7 @@ export default async function HomePage() {
                     <p className="text-gray-500 text-sm line-clamp-2 mb-4">{listing.description}</p>
                     <div className="flex justify-between items-center pt-3 border-t border-gray-100">
                       <div>
-                        <span className="font-bold text-gray-900">${(listing.priceCents / 100).toFixed(2)}</span>
+                        <span className="font-bold text-gray-900">{formatINR(listing.priceCents)}</span>
                         <span className="text-xs text-gray-400 ml-1">
                           {listing.pricingType === "ONE_TIME" ? "one-time" : "/month"}
                         </span>
@@ -429,9 +448,18 @@ export default async function HomePage() {
               </ul>
             </div>
           </div>
+          {/* payment trust row */}
+          <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-6 text-sm">
+            <span className="text-gray-500">Secure payments:</span>
+            <div className="flex items-center gap-2 flex-wrap justify-center">
+              {["UPI", "Razorpay", "Cards", "NetBanking"].map((p) => (
+                <span key={p} className="bg-gray-800 text-gray-200 px-3 py-1 rounded-md text-xs font-semibold border border-gray-700">{p}</span>
+              ))}
+            </div>
+          </div>
           <div className="border-t border-gray-800 pt-6 flex justify-between items-center flex-wrap gap-2">
-            <p className="text-sm">© 2026 AgentHub. All rights reserved.</p>
-            <p className="text-sm">Built with ❤️ for AI automation</p>
+            <p className="text-sm">© 2026 AgentHub. Made in India 🇮🇳</p>
+            <p className="text-sm">Built with ❤️ for Indian businesses</p>
           </div>
         </div>
       </footer>

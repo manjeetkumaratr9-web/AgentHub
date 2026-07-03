@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import SiteNav from "@/app/components/SiteNav";
+import { formatINR } from "@/lib/site";
 
 const CATEGORY_LABELS: Record<string, string> = {
   CUSTOMER_SUPPORT: "Customer Support",
@@ -124,7 +125,7 @@ export default async function BrowsePage({
                 <p className="text-gray-500 text-sm line-clamp-3 mb-4">{listing.description}</p>
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-bold text-gray-900">${(listing.priceCents / 100).toFixed(2)}</span>
+                    <span className="font-bold text-gray-900">{formatINR(listing.priceCents)}</span>
                     <span className="text-xs text-gray-400 ml-1">
                       {listing.pricingType === "ONE_TIME" ? "one-time" : "/month"}
                     </span>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { formatINR } from "@/lib/site";
 
 const CATEGORY_LABELS: Record<string, string> = {
   CUSTOMER_SUPPORT: "Customer Support",
@@ -117,7 +118,7 @@ export default function CreatorListingsPage() {
                     <div className="flex gap-4 mt-2 text-sm text-gray-400">
                       <span>
                         {listing.pricingType === "ONE_TIME" ? "One-time" : "Monthly"} —{" "}
-                        <strong className="text-gray-700">${(listing.priceCents / 100).toFixed(2)}</strong>
+                        <strong className="text-gray-700">{formatINR(listing.priceCents)}</strong>
                       </span>
                       <span>{listing._count.accesses} subscribers</span>
                     </div>

@@ -154,8 +154,8 @@ export default function EditListingPage() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Price (USD) *</label>
-              <input type="number" required min="1" step="0.01" value={form.priceAmount} onChange={(e) => set("priceAmount", e.target.value)}
+              <label className="block text-sm font-medium text-gray-700 mb-1">Price (₹ INR) *</label>
+              <input type="number" required min="1" step="1" value={form.priceAmount} onChange={(e) => set("priceAmount", e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
           </div>

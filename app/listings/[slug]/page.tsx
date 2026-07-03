@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import GetAccessButton from "./GetAccessButton";
 import SiteNav from "@/app/components/SiteNav";
+import { formatINR } from "@/lib/site";
 
 const CATEGORY_LABELS: Record<string, string> = {
   CUSTOMER_SUPPORT: "Customer Support",
@@ -97,7 +98,7 @@ export default async function ListingDetailPage({
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
                 <div className="text-3xl font-bold text-gray-900">
-                  ${(listing.priceCents / 100).toFixed(2)}
+                  {formatINR(listing.priceCents)}
                   <span className="text-base font-normal text-gray-400 ml-1">
                     {listing.pricingType === "ONE_TIME" ? "one-time" : "/month"}
                   </span>

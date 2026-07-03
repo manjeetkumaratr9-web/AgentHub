@@ -11,6 +11,14 @@ This platform does **not** build, host, or run any agent logic. It is purely:
 
 One account can be both Creator and Client — roles are derived from relations (having a `Listing` makes you a Creator; having an `Access` makes you a Client), not a stored role flag.
 
+## Product Direction v2.0 (India-first) — brand: **AgentHub**
+Live at agent-hub-rather1.vercel.app. The MVP above stands; v2.0 sharpens go-to-market:
+- **Two layers:** backend gateway = the technical moat (keep as-is, bypass-proof); frontend = **done-for-you** experience for MSMEs. Never surface API key / curl / JSON to the primary buyer — show WhatsApp chats, demo videos, "hum setup kar denge". Tagline: *"Engine developer-grade, dashboard Sharma-ji-grade."*
+- **India-first:** prices in **₹ INR** (not $), **Razorpay/UPI** (Stripe deferred), Hinglish copy everywhere, GST-aware later.
+- **WhatsApp-first:** floating WhatsApp button on every page; WhatsApp chat mockups instead of curl. Primary buyer = MSME (Tier 2/3, Agra first); developers are secondary.
+- **Honest only:** no fake stats. Use a "Founding Creator" launch offer (first 20 creators: 3 months 0% commission) instead of invented numbers.
+- **Listing Quality Standard:** benefit-driven title, Hinglish demo video, plain-language "kya karega" bullets, ₹ pricing, 24–48h setup promise, seller profile, correct category.
+
 ## Why this is simpler than an "agent builder" platform
 No LLM orchestration happens here: no vector DB, no embeddings, no document parsing, no LLM API key. It's a CRUD app (listings, payments, dashboards) plus one genuinely novel/risky piece: the invoke gateway.
 
