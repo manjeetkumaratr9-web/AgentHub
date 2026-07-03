@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx prisma *)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(mkdir -p \"/c/Users/manje/OneDrive/Documents/AI AGENT WEB/app/listings\" && mkdir -p \"/c/Users/manje/OneDrive/Documents/AI AGENT WEB/app/listings/[slug]\")",
+      "Bash(mkdir -p \"/c/Users/manje/OneDrive/Documents/AI AGENT WEB/app/api/support/threads/[threadId]/messages\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\manje\\OneDrive\\Documents\\AI AGENT WEB\\app\\listings",
+      "C:\\Users\\manje\\OneDrive\\Documents\\AI AGENT WEB\\app\\api\\support\\threads\\[threadId]"
+    ]
+  }
+}
