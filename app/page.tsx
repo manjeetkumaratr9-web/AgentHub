@@ -28,13 +28,26 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 const TOOLS = ["n8n", "Make", "Zapier", "OpenAI", "Slack", "Airtable", "Webhooks", "Discord", "HubSpot", "Google"];
 
+// Render at request time (not build time) so we never hit the DB during the
+// production build, and stay resilient if the database is briefly unreachable.
+export const dynamic = "force-dynamic";
+
+async function getFeaturedListings() {
+  try {
+    return await prisma.listing.findMany({
+      where: { status: "PUBLISHED" },
+      include: { creator: { select: { name: true } }, _count: { select: { accesses: true } } },
+      orderBy: { createdAt: "desc" },
+      take: 6,
+    });
+  } catch (err) {
+    console.error("Homepage: failed to load featured listings:", err);
+    return [];
+  }
+}
+
 export default async function HomePage() {
-  const featuredListings = await prisma.listing.findMany({
-    where: { status: "PUBLISHED" },
-    include: { creator: { select: { name: true } }, _count: { select: { accesses: true } } },
-    orderBy: { createdAt: "desc" },
-    take: 6,
-  });
+  const featuredListings = await getFeaturedListings();
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
