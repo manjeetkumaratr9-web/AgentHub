@@ -11,7 +11,7 @@ export default function SiteNav({ loggedIn = false }: { loggedIn?: boolean }) {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight">
             <span className="grid place-items-center w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 text-white text-sm shadow-lg shadow-blue-200">A</span>
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AgentMarket</span>
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AgentHub</span>
           </Link>
           <div className="hidden md:flex gap-6 text-sm text-gray-600">
             <Link href="/listings" className="hover:text-blue-600 transition">Browse Agents</Link>

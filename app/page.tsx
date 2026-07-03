@@ -296,7 +296,7 @@ export default async function HomePage() {
       <section className="py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <Reveal className="text-center mb-14">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Why AgentMarket</span>
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Why AgentHub</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-3">Built for trust & speed</h2>
             <p className="text-gray-500 text-lg">Everything you need to buy and sell agents safely</p>
           </Reveal>
@@ -386,7 +386,7 @@ export default async function HomePage() {
             <div>
               <h4 className="text-white font-bold mb-3 flex items-center gap-2">
                 <span className="grid place-items-center w-7 h-7 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 text-white text-xs">A</span>
-                AgentMarket
+                AgentHub
               </h4>
               <p className="text-sm leading-relaxed">The marketplace for AI agents. Buy, sell, and automate.</p>
             </div>
@@ -417,7 +417,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 flex justify-between items-center flex-wrap gap-2">
-            <p className="text-sm">© 2026 AgentMarket. All rights reserved.</p>
+            <p className="text-sm">© 2026 AgentHub. All rights reserved.</p>
             <p className="text-sm">Built with ❤️ for AI automation</p>
           </div>
         </div>

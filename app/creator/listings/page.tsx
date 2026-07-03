@@ -73,7 +73,7 @@ export default function CreatorListingsPage() {
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="font-bold text-blue-600 text-lg">AgentMarket</Link>
+          <Link href="/dashboard" className="font-bold text-blue-600 text-lg">AgentHub</Link>
           <Link href="/dashboard" className="text-sm text-gray-400 hover:text-gray-700">← Dashboard</Link>
         </div>
         <Link

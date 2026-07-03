@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Agent Marketplace",
-  description: "Buy and sell AI agents built on any platform",
+  title: "AgentHub — Buy & Sell AI Agents",
+  description: "AgentHub is the marketplace to find, buy, and sell AI agents built on any platform — n8n, Make, Zapier, or custom code.",
 };
 
 export default function RootLayout({

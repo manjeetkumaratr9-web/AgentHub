@@ -34,7 +34,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 px-4 py-10">
       <Link href="/" className="flex items-center gap-2 font-bold text-2xl tracking-tight mb-6">
         <span className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white text-base shadow-lg shadow-blue-200">A</span>
-        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AgentMarket</span>
+        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AgentHub</span>
       </Link>
       <div className="bg-white p-8 rounded-2xl shadow-xl shadow-blue-100/50 border border-gray-100 w-full max-w-md">
         <h1 className="text-2xl font-bold text-gray-800 mb-1">Welcome back</h1>

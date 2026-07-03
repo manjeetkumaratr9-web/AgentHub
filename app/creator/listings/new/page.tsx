@@ -79,7 +79,7 @@ export default function NewListingPage() {
       {/* Nav */}
       <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
         <Link href="/dashboard" className="font-bold text-blue-600 text-lg">
-          AgentMarket
+          AgentHub
         </Link>
         <Link href="/creator/listings" className="text-sm text-gray-500 hover:text-gray-800">
           ← My Listings

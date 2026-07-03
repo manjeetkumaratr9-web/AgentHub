@@ -24,7 +24,7 @@ export default async function DashboardPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Nav */}
       <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
-        <span className="font-bold text-blue-600 text-lg">AgentMarket</span>
+        <span className="font-bold text-blue-600 text-lg">AgentHub</span>
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-600">👋 {user?.name || user?.email}</span>
           <form action={async () => { "use server"; await signOut({ redirectTo: "/login" }); }}>

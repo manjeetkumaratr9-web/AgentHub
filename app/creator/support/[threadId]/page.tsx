@@ -58,7 +58,7 @@ export default function ClientSupportPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
-        <Link href="/dashboard" className="font-bold text-blue-600 text-lg">AgentMarket</Link>
+        <Link href="/dashboard" className="font-bold text-blue-600 text-lg">AgentHub</Link>
         <Link href="/creator/listings" className="text-sm text-gray-400 hover:text-gray-700">← My Listings</Link>
       </nav>
 
