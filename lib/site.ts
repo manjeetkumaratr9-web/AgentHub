@@ -6,6 +6,11 @@ export const WHATSAPP_NUMBER = "918433046449";
 // Platform owner — sees the admin "Grant Access" panel for manual (UPI) sales.
 export const OWNER_EMAIL = "manjeetkumaratr9@gmail.com";
 
+// Public site URL — used for SEO (sitemap, canonical, Open Graph).
+// TODO: change to "https://agenthub.com" after the custom domain is connected.
+export const SITE_URL = "https://agent-hub-rather1.vercel.app";
+export const SITE_NAME = "AgentHub";
+
 export const WHATSAPP_DEFAULT_MSG =
   "Hi! Mujhe apne business ke liye AI agent chahiye.";
 
