@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { signOut } from "@/lib/auth";
+import { OWNER_EMAIL } from "@/lib/site";
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -19,6 +20,7 @@ export default async function DashboardPage() {
 
   const isCreator = (user?._count.listings ?? 0) > 0;
   const isClient = (user?._count.accesses ?? 0) > 0;
+  const isOwner = user?.email === OWNER_EMAIL;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -36,6 +38,19 @@ export default async function DashboardPage() {
       <div className="max-w-4xl mx-auto px-6 py-10">
         <h1 className="text-2xl font-bold text-gray-800 mb-2">Dashboard</h1>
         <p className="text-gray-500 text-sm mb-8">{user?.email}</p>
+
+        {isOwner && (
+          <Link
+            href="/admin"
+            className="flex items-center justify-between bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-2xl px-6 py-4 mb-6 shadow-sm hover:shadow-lg transition"
+          >
+            <div>
+              <div className="font-semibold flex items-center gap-2">🔑 Owner Admin — Grant Access</div>
+              <div className="text-amber-50 text-sm">Payment (UPI) milne ke baad buyer ko access + API key do</div>
+            </div>
+            <span className="text-2xl">→</span>
+          </Link>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Creator Card */}

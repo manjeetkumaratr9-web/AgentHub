@@ -3,6 +3,9 @@
 // WhatsApp number: country code + number, digits only (India = 91).
 export const WHATSAPP_NUMBER = "918433046449";
 
+// Platform owner — sees the admin "Grant Access" panel for manual (UPI) sales.
+export const OWNER_EMAIL = "manjeetkumaratr9@gmail.com";
+
 export const WHATSAPP_DEFAULT_MSG =
   "Hi! Mujhe apne business ke liye AI agent chahiye.";
 

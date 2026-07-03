@@ -2,9 +2,8 @@ import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import GetAccessButton from "./GetAccessButton";
 import SiteNav from "@/app/components/SiteNav";
-import { formatINR } from "@/lib/site";
+import { formatINR, whatsappLink } from "@/lib/site";
 
 const CATEGORY_LABELS: Record<string, string> = {
   CUSTOMER_SUPPORT: "Customer Support",
@@ -124,15 +123,26 @@ export default async function ListingDetailPage({
                 >
                   ✅ You have access → Dashboard
                 </Link>
-              ) : session ? (
-                <GetAccessButton listingId={listing.id} pricingType={listing.pricingType} />
               ) : (
-                <Link
-                  href={`/signup`}
-                  className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition text-lg"
-                >
-                  Sign up to Subscribe →
-                </Link>
+                <div className="flex flex-col items-stretch sm:items-end gap-2">
+                  <a
+                    href={whatsappLink(
+                      `Hi! Main "${listing.title}" agent kharidna chahta hoon (${formatINR(listing.priceCents)}${listing.pricingType === "SUBSCRIPTION" ? "/mo" : ""}). Setup me help chahiye. 🙏`
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#25D366] text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-green-500/30 transition text-lg text-center"
+                  >
+                    💬 Buy on WhatsApp
+                  </a>
+                  {session ? (
+                    <span className="text-xs text-gray-400 text-center sm:text-right">Payment ke baad turant setup + access</span>
+                  ) : (
+                    <Link href="/signup" className="text-xs text-gray-400 hover:text-blue-600 text-center sm:text-right">
+                      ya pehle free account banao →
+                    </Link>
+                  )}
+                </div>
               )}
             </div>
           </div>
