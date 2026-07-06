@@ -3,7 +3,7 @@ import { auth } from "@/lib/auth";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNav from "@/app/components/SiteNav";
-import { formatINR, whatsappLink } from "@/lib/site";
+import { formatINR, whatsappLink, TELEGRAM_BOT_URL } from "@/lib/site";
 
 const CATEGORY_LABELS: Record<string, string> = {
   CUSTOMER_SUPPORT: "Customer Support",
@@ -90,6 +90,28 @@ export default async function ListingDetailPage({
               <h2 className="font-semibold text-gray-700 mb-2">How to use</h2>
               <pre className="text-sm text-gray-600 whitespace-pre-wrap font-mono">{listing.requestNotes}</pre>
             </div>
+          )}
+
+          {/* Live free trial (booking agents) */}
+          {listing.category === "APPOINTMENT_BOOKING" && (
+            <a
+              href={TELEGRAM_BOT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-3 mb-6 bg-gradient-to-r from-cyan-50 to-green-50 border border-green-200 rounded-xl px-5 py-4 hover:shadow-md transition"
+            >
+              <div>
+                <div className="font-semibold text-gray-800 flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                  </span>
+                  Try this agent LIVE — free
+                </div>
+                <div className="text-sm text-gray-500">Telegram par abhi ek booking karke dekho 🔥</div>
+              </div>
+              <span className="text-green-600 font-semibold whitespace-nowrap">Open →</span>
+            </a>
           )}
 
           {/* Pricing + CTA */}

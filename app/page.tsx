@@ -29,7 +29,14 @@ const CATEGORY_LABELS: Record<string, string> = {
   CUSTOM: "Custom",
 };
 
-const TOOLS = ["n8n", "Make", "Zapier", "OpenAI", "Slack", "Airtable", "Webhooks", "Discord", "HubSpot", "Google"];
+const TOOLS = ["n8n", "Make", "Google Gemini", "WhatsApp", "Telegram", "Google Sheets", "Google Calendar", "Zapier", "Razorpay", "OpenAI"];
+
+const USE_CASES = [
+  { icon: "🏥", title: "Clinics & Doctors", desc: "Appointment booking, reminders, patient FAQ — sab WhatsApp par automatic." },
+  { icon: "💇", title: "Salons & Spas", desc: "Slot booking, service enquiry aur no-show reminders — 24/7 chalu." },
+  { icon: "🎓", title: "Coaching & Tutors", desc: "Batch timing, fees, demo class booking aur admission queries." },
+  { icon: "🏪", title: "Shops & D2C", desc: "Order status, product FAQ aur lead capture — customer wait nahi karta." },
+];
 
 // Render at request time (not build time) so we never hit the DB during the
 // production build, and stay resilient if the database is briefly unreachable.
@@ -288,6 +295,31 @@ export default async function HomePage() {
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{CATEGORY_ICONS[key]}</div>
                   <div className="text-sm font-medium text-gray-700 group-hover:text-blue-600">{label}</div>
                 </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── INDUSTRY USE-CASES ── */}
+      <section className="py-24 px-6 bg-gray-50 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 -z-0">
+          <div className="absolute top-1/4 left-0 w-72 h-72 bg-indigo-200/30 rounded-full blur-3xl animate-drift-2" />
+        </div>
+        <div className="max-w-5xl mx-auto relative">
+          <Reveal className="text-center mb-14">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Har business ke liye</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-3">Aapke kaam ke ready agents</h2>
+            <p className="text-gray-500 text-lg">Chuno, hum setup kar denge — chalu ho jayega</p>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {USE_CASES.map((u, i) => (
+              <Reveal key={u.title} delay={(i % 4) * 90}>
+                <div className="tilt-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl p-6 h-full">
+                  <div className="text-4xl mb-3">{u.icon}</div>
+                  <h3 className="font-bold text-gray-800 mb-2">{u.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{u.desc}</p>
+                </div>
               </Reveal>
             ))}
           </div>
