@@ -3,6 +3,9 @@
 // WhatsApp number: country code + number, digits only (India = 91).
 export const WHATSAPP_NUMBER = "918433046449";
 
+// Live demo agent (Telegram) — customers can try a real booking agent free.
+export const TELEGRAM_BOT_URL = "https://t.me/agenthub_lead_bot";
+
 // Platform owner — sees the admin "Grant Access" panel for manual (UPI) sales.
 export const OWNER_EMAIL = "manjeetkumaratr9@gmail.com";
 

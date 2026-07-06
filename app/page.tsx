@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import Reveal from "./components/Reveal";
 import NetworkBackground from "./components/NetworkBackground";
 import SiteNav from "./components/SiteNav";
+import WorkflowDiagram from "./components/WorkflowDiagram";
+import LiveTrialSection from "./components/LiveTrialSection";
 import { whatsappLink, formatINR } from "@/lib/site";
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -191,6 +193,23 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── HOW YOUR AGENT WORKS (animated diagram) ── */}
+      <section className="relative px-6 py-24 bg-[#070b1c] overflow-hidden border-t border-white/5">
+        <div className="max-w-5xl mx-auto relative">
+          <Reveal className="text-center mb-12">
+            <span className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Kaise kaam karta hai</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">Ek agent — poora kaam automatic</h2>
+            <p className="text-slate-400 text-lg max-w-xl mx-auto">
+              Customer ka message aata hai, aur AI khud booking, record aur alert — sab kar deta hai. 24/7.
+            </p>
+          </Reveal>
+          <WorkflowDiagram />
+        </div>
+      </section>
+
+      {/* ── LIVE FREE TRIAL (real Telegram agent) ── */}
+      <LiveTrialSection />
 
       {/* ── FOUNDING CREATOR LAUNCH BANNER (honest, no fake stats) ── */}
       <section className="bg-white py-12 px-6">
